@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Business Process Optimization | Sylvi Stoanova</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f4f7fb;
+      color: #14253d;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #101f36, #203d61);
+      color: white;
+      text-align: center;
+      padding: 75px 20px 65px;
+    }
+
+    .eyebrow {
+      color: #8fd5e8;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: clamp(30px, 5vw, 52px);
+      margin: 18px 0 8px;
+      line-height: 1.2;
+    }
+
+    header h2 {
+      font-size: clamp(18px, 3vw, 25px);
+      font-weight: 400;
+      color: #d5e3f1;
+      margin: 0;
+    }
+
+    .intro {
+      max-width: 750px;
+      margin: 25px auto 0;
+      color: #e0e9f4;
+      font-size: 16px;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: -25px auto 0;
+      padding: 0 20px 60px;
+      position: relative;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 35px;
+      margin-bottom: 35px;
+      box-shadow: 0 10px 35px rgba(20, 37, 61, 0.09);
+    }
+
+    .section-number {
+      color: #2879a5;
+      font-weight: bold;
+      font-size: 13px;
+      letter-spacing: 2px;
+    }
+
+    h3 {
+      font-size: 27px;
+      margin: 8px 0 12px;
+    }
+
+    .description {
+      color: #53657b;
+      margin-bottom: 25px;
+    }
+
+    video {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      background: #0b1525;
+    }
+
+    .video-wrapper {
+      overflow: hidden;
+      border-radius: 10px;
+      background: #0b1525;
+    }
+
+    .note {
+      font-size: 13px;
+      color: #66788c;
+      margin-top: 15px;
+    }
+
+    .skills {
+      text-align: center;
+      padding: 30px 15px;
+    }
+
+    .skills h3 {
+      margin-bottom: 20px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .tag {
+      background: #e4eef7;
+      color: #183b5d;
+      padding: 10px 17px;
+      border-radius: 25px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      background: #101f36;
+      color: white;
+      padding: 40px 20px;
+    }
+
+    footer h3 {
+      margin: 0 0 5px;
+    }
+
+    footer p {
+      color: #c6d6e7;
+      margin: 5px 0;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 55px 20px;
+      }
+
+      .card {
+        padding: 22px;
+      }
+
+      h3 {
+        font-size: 23px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="eyebrow">
+      Business Analysis · Process Optimization
+    </div>
+
+    <h1>Business Process Optimization</h1>
+
+    <h2>From Order Entry to Delivery</h2>
+
+    <p class="intro">
+      Eine praxisorientierte Fallstudie zur Analyse,
+      Optimierung und prototypischen Automatisierung
+      eines abteilungsübergreifenden Geschäftsprozesses.
+    </p>
+  </header>
+
+  <main>
+
+    <section class="card">
+      <div class="section-number">01 — BUSINESS CASE STUDY</div>
+
+      <h3>Von der Prozessanalyse zur Optimierung</h3>
+
+      <p class="description">
+        Die Fallstudie zeigt, wie bestehende Prozessschwachstellen
+        identifiziert, fachliche Anforderungen abgeleitet und
+        Verbesserungsmöglichkeiten strukturiert entwickelt werden.
+      </p>
+
+      <div class="video-wrapper">
+        <video controls preload="metadata" playsinline>
+          <source
+            src="Business_Process_Optimization.mp4"
+            type="video/mp4">
+          Ihr Browser unterstützt dieses Videoformat nicht.
+        </video>
+      </div>
+
+      <p class="note">
+        Videopräsentation · ca. 1 Minute 46 Sekunden
+      </p>
+    </section>
+
+    <section class="card">
+      <div class="section-number">02 — FUNCTIONAL PROOF OF CONCEPT</div>
+
+      <h3>Prototypische Prozessautomatisierung mit n8n</h3>
+
+      <p class="description">
+        Ein funktionsfähiger Workflow prüft anhand von Testdaten
+        die Materialverfügbarkeit und unterscheidet zwischen
+        Materialengpass und ausreichender Verfügbarkeit.
+        Abhängig vom Ergebnis werden Prozessstatus und
+        zuständige Fachabteilung zugeordnet.
+      </p>
+
+      <div class="video-wrapper">
+        <video controls preload="metadata" playsinline>
+          <source
+            src="n8n_Proof_of_Concept(1).mp4"
+            type="video/mp4">
+          Ihr Browser unterstützt dieses Videoformat nicht.
+        </video>
+      </div>
+
+      <p class="note">
+        Workflow-Demonstration · ca. 39 Sekunden
+      </p>
+
+      <p class="note">
+        Proof of Concept mit manuell eingegebenen Testdaten.
+        Keine produktive ERP-Anbindung oder automatische
+        Benachrichtigung externer Abteilungen.
+      </p>
+    </section>
+
+    <section class="skills">
+      <h3>Methodischer Schwerpunkt</h3>
+
+      <div class="tags">
+        <span class="tag">Business Analysis</span>
+        <span class="tag">Requirements Engineering</span>
+        <span class="tag">Process Optimization</span>
+        <span class="tag">Digitalization</span>
+        <span class="tag">Proof of Concept</span>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <h3>Sylvi Stoanova</h3>
+
+    <p>Business Analysis | Process Optimization | Digitalization</p>
+
+    <p>
+      Fiktives Projektszenario – eigenständig erstellter
+      Proof of Concept.
+    </p>
+  </footer>
+
+</body>
+</html>
