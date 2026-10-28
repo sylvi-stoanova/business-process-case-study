@@ -1,317 +1,572 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#faf9f6">
-<meta name="description" content="Arbeitsprobe von Sylvi Stoanova: Geschäftsprozessanalyse, Optimierung und n8n-Prototyp.">
-<title>Sylvi Stoanova — Business Analysis</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<style>
-:root {
-  --paper: #faf9f6;
-  --ink: #20201f;
-  --subtle: #66635e;
-  --accent: #db7058;
-  --line: #e7e2db;
-}
-* { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body {
-  margin: 0;
-  background: var(--paper);
-  color: var(--ink);
-  font-family: "Segoe UI", Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-}
-a { color: inherit; }
-.wrap { max-width: 1160px; margin: auto; padding: 0 38px; }
+  <meta name="theme-color" content="#14263D">
 
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 27px 0;
-  border-bottom: 1px solid var(--line);
-}
-.brand { font-size: 15px; font-weight: 750; letter-spacing: -.3px; }
-.nav-right { font-size: 12px; color: var(--subtle); letter-spacing: .08em; text-transform: uppercase; }
+  <meta name="description"
+        content="Sylvi Stoanova – Business Analysis, Process Optimization und eigenständig erstellte Arbeitsproben.">
 
-.hero {
-  padding: 90px 0 65px;
-  display: grid;
-  grid-template-columns: 1.6fr .75fr;
-  align-items: end;
-  gap: 50px;
-}
-.kicker {
-  color: var(--accent);
-  font-size: 12px;
-  font-weight: 750;
-  letter-spacing: .15em;
-  text-transform: uppercase;
-}
-h1 {
-  margin: 23px 0 25px;
-  font-size: clamp(44px, 6.3vw, 83px);
-  letter-spacing: -.065em;
-  line-height: 1.055;
-  font-weight: 700;
-}
-h1 em { color: var(--accent); font-style: normal; }
-.hero-aside {
-  padding-bottom: 9px;
-  color: var(--subtle);
-  font-size: 16px;
-  line-height: 1.8;
-}
-.hero-aside strong { color: var(--ink); font-weight: 650; }
+  <title>Sylvi Stoanova | Business Process Optimization</title>
 
-.capabilities {
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  padding: 24px 0;
-  display: flex;
-  gap: 14px 34px;
-  flex-wrap: wrap;
-}
-.capabilities span { font-size: 13px; font-weight: 650; }
-.capabilities span::before {
-  content: "✳";
-  color: var(--accent);
-  margin-right: 9px;
-}
+  <style>
+    :root {
+      --navy: #14263D;
+      --navy2: #1D3552;
+      --teal: #00A6A6;
+      --white: #ffffff;
+      --soft: #C9D3DE;
+      --line: rgba(201, 211, 222, .17);
+    }
 
-.section-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  gap: 25px;
-  margin: 100px 0 35px;
-}
-.section-head h2 {
-  font-size: clamp(32px, 4vw, 53px);
-  letter-spacing: -.055em;
-  line-height: 1.15;
-  margin: 12px 0 0;
-}
-.section-head p {
-  color: var(--subtle);
-  font-size: 14px;
-  max-width: 270px;
-  line-height: 1.7;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-.work {
-  padding: 30px 0 60px;
-  border-top: 1px solid var(--line);
-}
-.work-heading {
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
-  gap: 30px;
-  margin-bottom: 24px;
-}
-.work-number {
-  color: var(--accent);
-  font-size: 13px;
-  font-weight: 750;
-  margin-bottom: 9px;
-}
-.work h3 {
-  font-size: clamp(24px, 3vw, 35px);
-  letter-spacing: -.04em;
-  margin: 0 0 10px;
-}
-.work-desc {
-  color: var(--subtle);
-  font-size: 15px;
-  line-height: 1.65;
-  max-width: 610px;
-  margin: 0;
-}
-.work-type {
-  white-space: nowrap;
-  font-size: 12px;
-  font-weight: 650;
-  border: 1px solid var(--line);
-  border-radius: 30px;
-  padding: 9px 14px;
-}
-.video-shell {
-  background: #141414;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 18px 45px rgba(40,30,20,.10);
-}
-video {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: contain;
-  background: #141414;
-}
-.video-note {
-  margin: 13px 0 0;
-  font-size: 12px;
-  color: var(--subtle);
-}
-.work-secondary { max-width: 920px; margin-left: auto; }
+    html {
+      scroll-behavior: smooth;
+    }
 
-.end {
-  border-top: 1px solid var(--line);
-  margin-top: 20px;
-  padding: 75px 0 85px;
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-  align-items: end;
-}
-.end h2 {
-  margin: 12px 0 0;
-  font-size: clamp(30px, 4.5vw, 56px);
-  letter-spacing: -.055em;
-  line-height: 1.12;
-}
-.end p {
-  max-width: 290px;
-  color: var(--subtle);
-  line-height: 1.7;
-  font-size: 14px;
-  margin: 0;
-}
-footer {
-  border-top: 1px solid var(--line);
-  padding: 23px 0 30px;
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
-  color: var(--subtle);
-  font-size: 12px;
-}
-@media (max-width: 760px) {
-  .wrap { padding: 0 20px; }
-  .hero { grid-template-columns: 1fr; gap: 10px; padding: 60px 0 45px; }
-  .hero-aside { max-width: 520px; }
-  .section-head, .work-heading, .end { flex-direction: column; align-items: start; }
-  .section-head { margin-top: 70px; }
-  .work-type { white-space: normal; }
-  .work-secondary { max-width: none; }
-  .end { padding: 55px 0; }
-  footer { flex-direction: column; }
-}
-@media (prefers-reduced-motion: no-preference) {
-  .video-shell { transition: transform .25s ease, box-shadow .25s ease; }
-  .video-shell:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 22px 55px rgba(40,30,20,.14);
-  }
-}
-</style>
+    body {
+      margin: 0;
+      background: #101f32;
+      color: var(--white);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .page {
+      max-width: 1160px;
+      margin: 0 auto;
+      min-height: 100vh;
+      background: var(--navy);
+      overflow: hidden;
+      box-shadow: 0 0 80px rgba(0, 0, 0, .17);
+    }
+
+    .inner {
+      padding-left: clamp(24px, 5vw, 68px);
+      padding-right: clamp(24px, 5vw, 68px);
+    }
+
+    /* HEADER */
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 22px;
+      padding-top: 29px;
+      padding-bottom: 25px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .name {
+      font-size: 13px;
+      letter-spacing: .16em;
+      font-weight: 750;
+    }
+
+    .role {
+      font-size: 11px;
+      color: var(--soft);
+      margin-top: 5px;
+    }
+
+    /* HERO */
+
+    .hero {
+      position: relative;
+      min-height: 345px;
+      display: flex;
+      align-items: center;
+      padding-top: 48px;
+      padding-bottom: 60px;
+      isolation: isolate;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+      max-width: 730px;
+    }
+
+    .eyebrow {
+      display: block;
+      width: 43px;
+      height: 3px;
+      background: var(--teal);
+      margin-bottom: 29px;
+    }
+
+    h1 {
+      font-size: clamp(39px, 6.5vw, 78px);
+      line-height: 1.04;
+      letter-spacing: -.055em;
+      margin: 0 0 22px;
+      font-weight: 780;
+    }
+
+    .tagline {
+      font-size: clamp(15px, 1.75vw, 20px);
+      line-height: 1.55;
+      color: var(--soft);
+      margin: 0;
+      max-width: 560px;
+    }
+
+    /* LIGHT BLUE LINES */
+
+    .wave {
+      position: absolute;
+      z-index: 1;
+      right: -100px;
+      top: 8px;
+      width: 550px;
+      height: 355px;
+      opacity: 1;
+      pointer-events: none;
+    }
+
+    /* COMPETENCIES */
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding-top: 36px;
+      padding-bottom: 36px;
+      gap: 15px;
+    }
+
+    .skill {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 13px;
+      min-width: 0;
+    }
+
+    .skill svg {
+      width: 36px;
+      height: 36px;
+      fill: none;
+      stroke: var(--teal);
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .skill span {
+      font-size: 13px;
+      line-height: 1.4;
+      font-weight: 650;
+    }
+
+    /* VIDEO SECTION */
+
+    .work {
+      padding-top: 44px;
+      padding-bottom: 58px;
+    }
+
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 30px;
+      align-items: start;
+    }
+
+    .project {
+      min-width: 0;
+    }
+
+    .number {
+      font-size: 14px;
+      color: var(--teal);
+      font-weight: 750;
+      letter-spacing: .05em;
+      margin-bottom: 9px;
+    }
+
+    .project h2 {
+      font-size: clamp(21px, 2.5vw, 28px);
+      line-height: 1.18;
+      margin: 0 0 7px;
+      letter-spacing: -.025em;
+    }
+
+    .project .sub {
+      font-size: 13px;
+      color: var(--soft);
+      line-height: 1.5;
+      margin: 0 0 20px;
+      min-height: 40px;
+    }
+
+    .video-frame {
+      background: #09121d;
+      border: 1px solid rgba(255, 255, 255, .15);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 18px 28px rgba(0, 0, 0, .22);
+    }
+
+    video {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: contain;
+      background: #09121d;
+      display: block;
+    }
+
+    .note {
+      font-size: 11px;
+      color: var(--soft);
+      line-height: 1.55;
+      margin: 13px 0 0;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding-top: 22px;
+      padding-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      font-size: 11px;
+      color: var(--soft);
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 720px) {
+      .top {
+        align-items: flex-start;
+      }
+
+      .hero {
+        min-height: 315px;
+      }
+
+      .wave {
+        right: -290px;
+        opacity: .7;
+      }
+
+      .skills {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 32px;
+      }
+
+      .work-grid {
+        gap: 18px;
+      }
+
+      .project .sub {
+        min-height: 0;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 7px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .work-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+    }
+
+    @media (max-width: 440px) {
+      .top {
+        flex-direction: column;
+        gap: 17px;
+      }
+
+      .hero {
+        padding-top: 48px;
+        padding-bottom: 50px;
+      }
+
+      .wave {
+        right: -360px;
+      }
+
+      .skill span {
+        font-size: 12px;
+      }
+    }
+  </style>
 </head>
 
 <body>
-<div class="wrap">
 
-  <nav>
-    <div class="brand">Sylvi Stoanova<span style="color:var(--accent)">.</span></div>
-    <div class="nav-right">Business Analysis / Arbeitsprobe</div>
-  </nav>
+<div class="page" id="home">
 
-  <header class="hero">
+  <!-- HEADER -->
+
+  <header class="top inner">
     <div>
-      <div class="kicker">Praxis trifft Wirtschaftsinformatik</div>
-      <h1>Prozesse verstehen.<br>Potenziale erkennen.<br><em>Wandel gestalten.</em></h1>
-    </div>
-    <div class="hero-aside">
-      <strong>Mein Blick auf Geschäftsprozesse:</strong><br>
-      Operative Erfahrung in Industrie und Logistik.
-      Analytisches Denken. Interesse an digitalen Lösungen
-      mit praktischem Mehrwert.
+      <div class="name">SYLVI STOANOVA</div>
+
+      <div class="role">
+        Business Analysis | Process Optimization
+      </div>
     </div>
   </header>
 
-  <div class="capabilities" aria-label="Kompetenzen">
-    <span>Operatives Prozessverständnis</span>
-    <span>Anforderungsanalyse</span>
-    <span>Wirtschaftliches Denken</span>
-    <span>Digitale Methoden</span>
-  </div>
 
-  <main>
-    <div class="section-head">
-      <div>
-        <div class="kicker">Ausgewählte Arbeitsprobe</div>
-        <h2>Von der Analyse<br>zur Umsetzung.</h2>
-      </div>
-      <p>Eine fiktive Fallstudie. Zwei kurze Videos. Ein nachvollziehbarer Lösungsansatz.</p>
-    </div>
+  <!-- HERO -->
 
-    <section class="work" aria-labelledby="case-title">
-      <div class="work-heading">
-        <div>
-          <div class="work-number">01 / PROZESSANALYSE</div>
-          <h3 id="case-title">Business Process Optimization</h3>
-          <p class="work-desc">
-            Schwachstellen erkennen, Anforderungen ableiten
-            und einen verbesserten Auftragsprozess konzipieren.
-          </p>
-        </div>
-        <div class="work-type">Case Study</div>
-      </div>
-      <div class="video-shell">
-        <video controls preload="metadata" playsinline
-               aria-label="Video: Business Process Optimization">
-          <source src="Business_Process_Optimization.mp4" type="video/mp4">
-          Ihr Browser unterstützt keine MP4-Videos.
-        </video>
-      </div>
-    </section>
+  <section class="hero inner" aria-label="Einführung">
 
-    <section class="work work-secondary" aria-labelledby="poc-title">
-      <div class="work-heading">
-        <div>
-          <div class="work-number">02 / PRAKTISCHER NACHWEIS</div>
-          <h3 id="poc-title">Vom Konzept zum Prototyp</h3>
-          <p class="work-desc">
-            Materialverfügbarkeit regelbasiert prüfen
-            und die zuständige Fachabteilung zuordnen –
-            prototypisch umgesetzt mit n8n.
-          </p>
-        </div>
-        <div class="work-type">Proof of Concept</div>
-      </div>
-      <div class="video-shell">
-        <video controls preload="metadata" playsinline
-               aria-label="Video: n8n Proof of Concept">
-          <source src="n8n_Proof_of_Concept(1).mp4" type="video/mp4">
-          Ihr Browser unterstützt keine MP4-Videos.
-        </video>
-      </div>
-      <p class="video-note">
-        Eigenständig erstellter Prototyp mit Testdaten · Keine produktive ERP-Anbindung
+    <div class="hero-copy">
+
+      <span class="eyebrow" aria-hidden="true"></span>
+
+      <h1>
+        Business<br>
+        Process Optimization
+      </h1>
+
+      <p class="tagline">
+        Operative Erfahrung. Analytisches Denken.<br>
+        Digitale Lösungen.
       </p>
-    </section>
-  </main>
 
-  <section class="end">
-    <div>
-      <div class="kicker">Mein fachlicher Ansatz</div>
-      <h2>Praxis verstehen.<br><span style="color:var(--accent)">Neues dazulernen.</span></h2>
     </div>
-    <p>
-      B.Sc. Wirtschaftsinformatik und kaufmännische Erfahrung
-      in Industrie und Logistik – verbunden mit der Bereitschaft,
-      neue Methoden praktisch anzuwenden.
-    </p>
+
+
+    <!-- HELLBLAUE LINIENGRAFIK -->
+
+    <svg
+      class="wave"
+      viewBox="0 0 550 355"
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg">
+
+      <defs>
+        <linearGradient
+          id="glow"
+          x1="0"
+          y1="1"
+          x2="1"
+          y2="0">
+
+          <stop
+            stop-color="#8FDFFF"
+            stop-opacity=".15"/>
+
+          <stop
+            offset=".55"
+            stop-color="#8FDFFF"
+            stop-opacity=".72"/>
+
+          <stop
+            offset="1"
+            stop-color="#BCEEFF"
+            stop-opacity="1"/>
+
+        </linearGradient>
+      </defs>
+
+      <g
+        fill="none"
+        stroke="url(#glow)"
+        stroke-width="2">
+
+        <path d="M15 347 C210 325 332 258 425 128 S530 8 590 -20"/>
+        <path d="M15 347 C215 320 340 248 434 120 S535 5 590 -25"/>
+        <path d="M15 347 C220 316 348 238 443 112 S540 2 590 -30"/>
+        <path d="M15 347 C225 312 356 228 452 104 S545 -1 590 -35"/>
+        <path d="M15 347 C230 308 364 218 461 96 S550 -4 590 -40"/>
+        <path d="M15 347 C235 304 372 208 470 88 S555 -7 590 -45"/>
+        <path d="M15 347 C240 300 380 198 479 80 S560 -10 590 -50"/>
+        <path d="M15 347 C245 296 388 188 488 72 S565 -13 590 -55"/>
+        <path d="M15 347 C250 292 396 178 497 64 S570 -16 590 -60"/>
+        <path d="M15 347 C255 288 404 168 506 56 S575 -19 590 -65"/>
+
+      </g>
+
+    </svg>
+
   </section>
 
-  <footer>
-    <span>© 2026 Sylvi Stoanova</span>
-    <span>Fiktives Projektszenario · Business Analysis & Process Optimization</span>
+
+  <!-- COMPETENCIES -->
+
+  <section class="skills inner" aria-label="Kompetenzen">
+
+    <div class="skill">
+
+      <svg viewBox="0 0 40 40" aria-hidden="true">
+        <circle cx="20" cy="7" r="4"/>
+        <circle cx="7" cy="31" r="4"/>
+        <circle cx="33" cy="31" r="4"/>
+        <path d="M18 11 9 27M22 11l9 16M11 31h18"/>
+      </svg>
+
+      <span>
+        Prozess-<br>verständnis
+      </span>
+
+    </div>
+
+
+    <div class="skill">
+
+      <svg viewBox="0 0 40 40" aria-hidden="true">
+        <path d="M11 4h14l6 6v26H11zM25 4v7h6M16 19h11M16 25h11M16 31h8"/>
+      </svg>
+
+      <span>
+        Anforderungsanalyse
+      </span>
+
+    </div>
+
+
+    <div class="skill">
+
+      <svg viewBox="0 0 40 40" aria-hidden="true">
+        <path d="M6 35V23h7v12M17 35V17h7v18M28 35V10h7v25M5 16l10-7 8 4L35 4M29 4h6v6"/>
+      </svg>
+
+      <span>
+        Wirtschaftliches<br>Handeln
+      </span>
+
+    </div>
+
+
+    <div class="skill">
+
+      <svg viewBox="0 0 40 40" aria-hidden="true">
+        <path d="M14 28c0-4-7-7-7-15a13 13 0 0 1 26 0c0 8-7 11-7 15M14 28h12M15 33h10M18 37h4M20 1v-1M4 6 1 3M36 6l3-3"/>
+      </svg>
+
+      <span>
+        Digitalisierung
+      </span>
+
+    </div>
+
+  </section>
+
+
+  <!-- TWO VIDEOS SIDE BY SIDE -->
+
+  <main class="work inner" id="videos">
+
+    <div class="work-grid">
+
+
+      <!-- VIDEO 1 -->
+
+      <article class="project">
+
+        <div class="number">01</div>
+
+        <h2>Business Case Study</h2>
+
+        <p class="sub">
+          Prozessanalyse und Optimierung
+        </p>
+
+        <div class="video-frame">
+
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            aria-label="Business Case Study">
+
+            <source
+              src="Business_Process_Optimization.mp4"
+              type="video/mp4">
+
+            Dein Browser unterstützt keine MP4-Videos.
+
+          </video>
+
+        </div>
+
+        <p class="note">
+          Konzeptionelle Fallstudie auf Basis eines
+          fiktiven Geschäftsszenarios ·
+          Keine Darstellung eines realen Kundenprojekts
+        </p>
+
+      </article>
+
+
+      <!-- VIDEO 2 -->
+
+      <article class="project">
+
+        <div class="number">02</div>
+
+        <h2>n8n Proof of Concept</h2>
+
+        <p class="sub">
+          Prozessentscheidung automatisieren
+        </p>
+
+        <div class="video-frame">
+
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            aria-label="n8n Proof of Concept">
+
+            <source
+              src="n8n_Proof_of_Concept(1).mp4"
+              type="video/mp4">
+
+            Dein Browser unterstützt keine MP4-Videos.
+
+          </video>
+
+        </div>
+
+        <p class="note">
+          Fiktives Projektszenario mit Testdaten ·
+          Keine produktive ERP-Anbindung
+        </p>
+
+      </article>
+
+    </div>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer class="inner">
+
+    <span>
+      © 2026 Sylvi Stoanova
+    </span>
+
+    <span>
+      Business Analysis · Process Optimization · Digitalization
+    </span>
+
   </footer>
 
 </div>
+
 </body>
 </html>
