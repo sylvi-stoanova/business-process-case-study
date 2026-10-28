@@ -1,163 +1,257 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <meta name="description"
+        content="Praxisorientierte Fallstudie von Sylvi Stoanova zur Geschäftsprozessanalyse, Anforderungsanalyse und prototypischen Prozessoptimierung.">
+
   <title>Business Process Optimization | Sylvi Stoanova</title>
 
   <style>
+    :root {
+      --navy: #14263e;
+      --blue: #315b83;
+      --text: #263548;
+      --muted: #607086;
+      --border: #dce3eb;
+      --background: #ffffff;
+      --soft: #f5f7fa;
+    }
+
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
+      background: var(--background);
+      color: var(--text);
       font-family: Arial, Helvetica, sans-serif;
-      background: #f4f7fb;
-      color: #14253d;
-      line-height: 1.6;
+      font-size: 16px;
+      line-height: 1.7;
     }
+
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
+
+    /* HEADER */
 
     header {
-      background: linear-gradient(135deg, #101f36, #203d61);
-      color: white;
-      text-align: center;
-      padding: 75px 20px 65px;
+      padding: 80px 0 58px;
+      border-bottom: 1px solid var(--border);
     }
 
-    .eyebrow {
-      color: #8fd5e8;
+    .label {
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
       text-transform: uppercase;
-      letter-spacing: 3px;
-      font-size: 13px;
-      font-weight: bold;
     }
 
     h1 {
-      font-size: clamp(30px, 5vw, 52px);
-      margin: 18px 0 8px;
+      margin: 17px 0 10px;
+      color: var(--navy);
+      font-size: clamp(32px, 5vw, 46px);
       line-height: 1.2;
+      letter-spacing: -1px;
     }
 
-    header h2 {
-      font-size: clamp(18px, 3vw, 25px);
-      font-weight: 400;
-      color: #d5e3f1;
+    .subtitle {
       margin: 0;
+      color: var(--blue);
+      font-size: 21px;
+      font-weight: 400;
     }
 
     .intro {
-      max-width: 750px;
-      margin: 25px auto 0;
-      color: #e0e9f4;
+      max-width: 700px;
+      margin-top: 26px;
+      color: var(--muted);
       font-size: 16px;
     }
 
-    main {
-      max-width: 1000px;
-      margin: -25px auto 0;
-      padding: 0 20px 60px;
-      position: relative;
+    .author {
+      margin-top: 27px;
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 700;
     }
 
-    .card {
-      background: white;
-      border-radius: 16px;
-      padding: 35px;
-      margin-bottom: 35px;
-      box-shadow: 0 10px 35px rgba(20, 37, 61, 0.09);
+    /* SECTIONS */
+
+    section {
+      padding: 54px 0;
+      border-bottom: 1px solid var(--border);
     }
 
-    .section-number {
-      color: #2879a5;
-      font-weight: bold;
-      font-size: 13px;
-      letter-spacing: 2px;
+    h2 {
+      margin: 0 0 22px;
+      color: var(--navy);
+      font-size: 25px;
+      line-height: 1.35;
     }
 
     h3 {
-      font-size: 27px;
-      margin: 8px 0 12px;
+      margin: 8px 0 15px;
+      color: var(--navy);
+      font-size: 21px;
+      line-height: 1.4;
     }
 
-    .description {
-      color: #53657b;
-      margin-bottom: 25px;
+    p {
+      margin: 0 0 17px;
+    }
+
+    .profile-text {
+      max-width: 790px;
+    }
+
+    .profile-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* VIDEOS */
+
+    .project {
+      margin-top: 35px;
+    }
+
+    .project + .project {
+      margin-top: 60px;
+    }
+
+    .project-number {
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+    }
+
+    .project-description {
+      max-width: 790px;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .video-container {
+      background: #101820;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
     }
 
     video {
       display: block;
       width: 100%;
       height: auto;
-      border-radius: 10px;
-      background: #0b1525;
+      aspect-ratio: 16 / 9;
+      background: #101820;
     }
 
-    .video-wrapper {
-      overflow: hidden;
-      border-radius: 10px;
-      background: #0b1525;
-    }
-
-    .note {
+    .video-note {
+      margin-top: 12px;
+      color: var(--muted);
       font-size: 13px;
-      color: #66788c;
-      margin-top: 15px;
     }
 
-    .skills {
-      text-align: center;
-      padding: 30px 15px;
+    /* COMPETENCIES */
+
+    .competencies {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px 45px;
+      margin-top: 26px;
     }
 
-    .skills h3 {
-      margin-bottom: 20px;
+    .competency {
+      border-left: 2px solid var(--blue);
+      padding-left: 17px;
     }
 
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
+    .competency h3 {
+      margin: 0 0 7px;
+      font-size: 16px;
     }
 
-    .tag {
-      background: #e4eef7;
-      color: #183b5d;
-      padding: 10px 17px;
-      border-radius: 25px;
+    .competency p {
+      margin: 0;
+      color: var(--muted);
       font-size: 14px;
-      font-weight: bold;
+      line-height: 1.6;
     }
+
+    /* CLOSING */
+
+    .closing {
+      background: var(--soft);
+      padding: 35px;
+      border-radius: 6px;
+    }
+
+    .closing p {
+      margin-bottom: 0;
+    }
+
+    /* FOOTER */
 
     footer {
+      padding: 38px 0 45px;
       text-align: center;
-      background: #101f36;
-      color: white;
-      padding: 40px 20px;
     }
 
-    footer h3 {
-      margin: 0 0 5px;
+    .footer-name {
+      color: var(--navy);
+      font-size: 17px;
+      font-weight: 700;
     }
 
-    footer p {
-      color: #c6d6e7;
-      margin: 5px 0;
+    .footer-detail {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 7px;
     }
 
-    @media (max-width: 600px) {
+    /* MOBILE */
+
+    @media (max-width: 640px) {
       header {
-        padding: 55px 20px;
+        padding: 55px 0 42px;
       }
 
-      .card {
-        padding: 22px;
+      section {
+        padding: 42px 0;
       }
 
-      h3 {
-        font-size: 23px;
+      .container {
+        padding: 0 20px;
+      }
+
+      .competencies {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .subtitle {
+        font-size: 18px;
+      }
+
+      .closing {
+        padding: 25px;
+      }
+
+      .project + .project {
+        margin-top: 45px;
       }
     }
   </style>
@@ -165,105 +259,309 @@
 
 <body>
 
+  <!-- HEADER -->
+
   <header>
-    <div class="eyebrow">
-      Business Analysis · Process Optimization
+    <div class="container">
+
+      <div class="label">
+        Praxisorientierte Fallstudie | Business Analysis
+      </div>
+
+      <h1>Business Process Optimization</h1>
+
+      <p class="subtitle">
+        From Order Entry to Delivery
+      </p>
+
+      <p class="intro">
+        Analyse eines abteilungsübergreifenden Geschäftsprozesses,
+        Ableitung fachlicher Anforderungen und prototypische
+        Umsetzung einer regelbasierten Prozessentscheidung.
+      </p>
+
+      <div class="author">
+        Sylvi Stoanova
+      </div>
+
     </div>
-
-    <h1>Business Process Optimization</h1>
-
-    <h2>From Order Entry to Delivery</h2>
-
-    <p class="intro">
-      Eine praxisorientierte Fallstudie zur Analyse,
-      Optimierung und prototypischen Automatisierung
-      eines abteilungsübergreifenden Geschäftsprozesses.
-    </p>
   </header>
 
-  <main>
 
-    <section class="card">
-      <div class="section-number">01 — BUSINESS CASE STUDY</div>
+  <main class="container">
 
-      <h3>Von der Prozessanalyse zur Optimierung</h3>
+    <!-- PROFESSIONAL BACKGROUND -->
 
-      <p class="description">
-        Die Fallstudie zeigt, wie bestehende Prozessschwachstellen
-        identifiziert, fachliche Anforderungen abgeleitet und
-        Verbesserungsmöglichkeiten strukturiert entwickelt werden.
-      </p>
+    <section>
 
-      <div class="video-wrapper">
-        <video controls preload="metadata" playsinline>
-          <source
-            src="Business_Process_Optimization.mp4"
-            type="video/mp4">
-          Ihr Browser unterstützt dieses Videoformat nicht.
-        </video>
+      <div class="label">
+        Fachlicher Hintergrund
       </div>
 
-      <p class="note">
-        Videopräsentation · ca. 1 Minute 46 Sekunden
-      </p>
+      <h2>
+        Operative Erfahrung trifft Wirtschaftsinformatik
+      </h2>
+
+      <div class="profile-text">
+
+        <p>
+          Meine berufliche Erfahrung umfasst kaufmännische
+          und operative Geschäftsprozesse in Industrie
+          und Logistik. Dazu gehören insbesondere
+          Auftragsabwicklung, Kalkulation, Transportplanung
+          sowie die Koordination verschiedener
+          interner und externer Schnittstellen.
+        </p>
+
+        <p>
+          Durch mein Studium der Wirtschaftsinformatik
+          habe ich diese praktische Erfahrung um Kenntnisse
+          in Prozess- und Anforderungsanalyse,
+          Informationssystemen und digitalen
+          Geschäftsprozessen erweitert.
+        </p>
+
+        <p>
+          Mein besonderes Interesse gilt der Frage,
+          wie sich bestehende Abläufe durch strukturierte
+          Analyse, klare Anforderungen und den
+          sinnvollen Einsatz digitaler Technologien
+          nachhaltig verbessern lassen.
+        </p>
+
+      </div>
+
     </section>
 
-    <section class="card">
-      <div class="section-number">02 — FUNCTIONAL PROOF OF CONCEPT</div>
 
-      <h3>Prototypische Prozessautomatisierung mit n8n</h3>
+    <!-- CASE STUDY -->
 
-      <p class="description">
-        Ein funktionsfähiger Workflow prüft anhand von Testdaten
-        die Materialverfügbarkeit und unterscheidet zwischen
-        Materialengpass und ausreichender Verfügbarkeit.
-        Abhängig vom Ergebnis werden Prozessstatus und
-        zuständige Fachabteilung zugeordnet.
-      </p>
+    <section>
 
-      <div class="video-wrapper">
-        <video controls preload="metadata" playsinline>
-          <source
-            src="n8n_Proof_of_Concept(1).mp4"
-            type="video/mp4">
-          Ihr Browser unterstützt dieses Videoformat nicht.
-        </video>
+      <div class="label">
+        Arbeitsprobe
       </div>
 
-      <p class="note">
-        Workflow-Demonstration · ca. 39 Sekunden
-      </p>
+      <h2>
+        Von der Prozessanalyse zur prototypischen Umsetzung
+      </h2>
 
-      <p class="note">
-        Proof of Concept mit manuell eingegebenen Testdaten.
-        Keine produktive ERP-Anbindung oder automatische
-        Benachrichtigung externer Abteilungen.
-      </p>
+      <!-- VIDEO 1 -->
+
+      <article class="project">
+
+        <div class="project-number">
+          01 / PROZESSANALYSE
+        </div>
+
+        <h3>
+          Geschäftsprozesse analysieren und optimieren
+        </h3>
+
+        <p class="project-description">
+          Die Fallstudie betrachtet einen fiktiven
+          Auftragsabwicklungsprozess eines
+          Automobilzulieferers. Sie zeigt die
+          Identifikation von Prozessschwachstellen,
+          die Ableitung fachlicher Anforderungen
+          und die Entwicklung eines strukturierten
+          Soll-Prozesses.
+        </p>
+
+        <div class="video-container">
+
+          <video controls preload="metadata" playsinline
+                 aria-label="Video zur Geschäftsprozessanalyse">
+
+            <source
+              src="Business_Process_Optimization.mp4"
+              type="video/mp4">
+
+            Ihr Browser unterstützt dieses Videoformat nicht.
+
+          </video>
+
+        </div>
+
+        <p class="video-note">
+          Business Case Study | Videopräsentation
+        </p>
+
+      </article>
+
+
+      <!-- VIDEO 2 -->
+
+      <article class="project">
+
+        <div class="project-number">
+          02 / PROOF OF CONCEPT
+        </div>
+
+        <h3>
+          Fachliche Anforderungen praktisch überprüfen
+        </h3>
+
+        <p class="project-description">
+          Ein mit n8n erstellter Prototyp demonstriert
+          die regelbasierte Prüfung der Materialverfügbarkeit.
+          Anhand definierter Testdaten werden unterschiedliche
+          Prozesswege durchlaufen und die jeweils
+          zuständige Fachabteilung zugeordnet.
+        </p>
+
+        <div class="video-container">
+
+          <video controls preload="metadata" playsinline
+                 aria-label="Video zur n8n-Workflow-Demonstration">
+
+            <source
+              src="n8n_Proof_of_Concept(1).mp4"
+              type="video/mp4">
+
+            Ihr Browser unterstützt dieses Videoformat nicht.
+
+          </video>
+
+        </div>
+
+        <p class="video-note">
+          Funktionsfähiger Proof of Concept mit Testdaten.
+          Keine produktive ERP-Anbindung und keine
+          automatische Benachrichtigung von Fachabteilungen.
+        </p>
+
+      </article>
+
     </section>
 
-    <section class="skills">
-      <h3>Methodischer Schwerpunkt</h3>
 
-      <div class="tags">
-        <span class="tag">Business Analysis</span>
-        <span class="tag">Requirements Engineering</span>
-        <span class="tag">Process Optimization</span>
-        <span class="tag">Digitalization</span>
-        <span class="tag">Proof of Concept</span>
+    <!-- COMPETENCIES -->
+
+    <section>
+
+      <div class="label">
+        Fachliche Kompetenzen
       </div>
+
+      <h2>
+        Mein Beitrag zur Geschäftsprozessoptimierung
+      </h2>
+
+      <div class="competencies">
+
+        <div class="competency">
+
+          <h3>
+            Operatives Prozessverständnis
+          </h3>
+
+          <p>
+            Praktische Erfahrung mit kaufmännischen
+            Abläufen, Abhängigkeiten und
+            abteilungsübergreifenden Prozessen.
+          </p>
+
+        </div>
+
+        <div class="competency">
+
+          <h3>
+            Analytisches und wirtschaftliches Denken
+          </h3>
+
+          <p>
+            Strukturierte Betrachtung von Abläufen
+            unter Berücksichtigung von Kosten,
+            Terminen, Kapazitäten und Kundenanforderungen.
+          </p>
+
+        </div>
+
+        <div class="competency">
+
+          <h3>
+            Schnittstellenkoordination
+          </h3>
+
+          <p>
+            Erfahrung in der Abstimmung zwischen
+            unterschiedlichen Beteiligten und
+            im Umgang mit operativen Anforderungen.
+          </p>
+
+        </div>
+
+        <div class="competency">
+
+          <h3>
+            Digitalisierung und Weiterentwicklung
+          </h3>
+
+          <p>
+            Verbindung betriebswirtschaftlicher
+            Erfahrung mit Wirtschaftsinformatik
+            und der praktischen Erprobung
+            neuer digitaler Methoden.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CONCLUSION -->
+
+    <section>
+
+      <div class="closing">
+
+        <h2>
+          Mein Ansatz
+        </h2>
+
+        <p>
+          Geschäftsprozesse zunächst aus fachlicher
+          und wirtschaftlicher Perspektive verstehen,
+          Anforderungen nachvollziehbar strukturieren
+          und darauf aufbauend praktikable
+          Verbesserungsmöglichkeiten entwickeln.
+          Neue Methoden und Technologien setze ich
+          dabei gezielt ein und erweitere meine
+          Kenntnisse kontinuierlich.
+        </p>
+
+      </div>
+
     </section>
 
   </main>
 
+
+  <!-- FOOTER -->
+
   <footer>
-    <h3>Sylvi Stoanova</h3>
 
-    <p>Business Analysis | Process Optimization | Digitalization</p>
+    <div class="container">
 
-    <p>
-      Fiktives Projektszenario – eigenständig erstellter
-      Proof of Concept.
-    </p>
+      <div class="footer-name">
+        Sylvi Stoanova
+      </div>
+
+      <div class="footer-detail">
+        B.Sc. Wirtschaftsinformatik |
+        Berufserfahrung in Industrie und Logistik
+      </div>
+
+      <div class="footer-detail">
+        Fiktives Projektszenario –
+        eigenständig erstellter Proof of Concept
+      </div>
+
+    </div>
+
   </footer>
 
 </body>
