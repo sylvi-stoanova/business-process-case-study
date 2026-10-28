@@ -1,309 +1,227 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="theme-color" content="#14263D">
-
-  <meta name="description"
-        content="Sylvi Stoanova – Business Analysis, Process Optimization und eigenständig erstellte Arbeitsproben.">
-
-  <title>Sylvi Stoanova | Business Process Optimization</title>
+  <title>Business Process Optimization | Sylvi Stoanova</title>
 
   <style>
     :root {
       --navy: #14263D;
-      --navy2: #1D3552;
-      --teal: #00A6A6;
-      --white: #ffffff;
+      --navy-dark: #101F32;
+      --turquoise: #00A6A6;
+      --lightblue: #8FDFFF;
+      --white: #FFFFFF;
       --soft: #C9D3DE;
-      --line: rgba(201, 211, 222, .17);
+      --border: rgba(255,255,255,0.15);
     }
 
     * {
       box-sizing: border-box;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-
     body {
       margin: 0;
-      background: #101f32;
-      color: var(--white);
-      font-family: Inter, "Segoe UI", Arial, sans-serif;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .page {
-      max-width: 1160px;
-      margin: 0 auto;
-      min-height: 100vh;
       background: var(--navy);
-      overflow: hidden;
-      box-shadow: 0 0 80px rgba(0, 0, 0, .17);
+      color: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
     }
 
-    .inner {
-      padding-left: clamp(24px, 5vw, 68px);
-      padding-right: clamp(24px, 5vw, 68px);
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 30px;
     }
 
     /* HEADER */
 
-    .top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 22px;
-      padding-top: 29px;
-      padding-bottom: 25px;
-      border-bottom: 1px solid var(--line);
+    header {
+      padding: 25px 0;
+      border-bottom: 1px solid var(--border);
     }
 
     .name {
-      font-size: 13px;
-      letter-spacing: .16em;
-      font-weight: 750;
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 2px;
     }
 
     .role {
-      font-size: 11px;
+      margin-top: 6px;
+      font-size: 12px;
       color: var(--soft);
-      margin-top: 5px;
     }
 
     /* HERO */
 
     .hero {
       position: relative;
-      min-height: 345px;
+      min-height: 350px;
       display: flex;
       align-items: center;
-      padding-top: 48px;
-      padding-bottom: 60px;
-      isolation: isolate;
+      overflow: hidden;
+      padding: 60px 0;
     }
 
-    .hero-copy {
+    .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 730px;
     }
 
-    .eyebrow {
-      display: block;
-      width: 43px;
+    .accent-line {
+      width: 45px;
       height: 3px;
-      background: var(--teal);
-      margin-bottom: 29px;
+      background: var(--turquoise);
+      margin-bottom: 30px;
     }
 
     h1 {
-      font-size: clamp(39px, 6.5vw, 78px);
-      line-height: 1.04;
-      letter-spacing: -.055em;
-      margin: 0 0 22px;
-      font-weight: 780;
+      font-size: clamp(38px, 6vw, 70px);
+      line-height: 1.05;
+      margin: 0 0 25px;
+      letter-spacing: -2px;
     }
 
-    .tagline {
-      font-size: clamp(15px, 1.75vw, 20px);
-      line-height: 1.55;
+    .subtitle {
+      font-size: 19px;
+      line-height: 1.6;
       color: var(--soft);
-      margin: 0;
-      max-width: 560px;
     }
 
-    /* LIGHT BLUE LINES */
+    /* LIGHT BLUE WAVE */
 
     .wave {
       position: absolute;
-      z-index: 1;
-      right: -100px;
-      top: 8px;
-      width: 550px;
-      height: 355px;
-      opacity: 1;
+      right: -60px;
+      bottom: 0;
+      width: 520px;
+      height: 280px;
       pointer-events: none;
     }
 
-    /* COMPETENCIES */
+    /* SKILLS */
 
     .skills {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      padding-top: 36px;
-      padding-bottom: 36px;
-      gap: 15px;
+      gap: 25px;
+      padding: 45px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
     }
 
     .skill {
       text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 13px;
-      min-width: 0;
     }
 
     .skill svg {
-      width: 36px;
-      height: 36px;
-      fill: none;
-      stroke: var(--teal);
+      width: 38px;
+      height: 38px;
+      stroke: var(--turquoise);
       stroke-width: 1.7;
-      stroke-linecap: round;
-      stroke-linejoin: round;
+      fill: none;
+      margin-bottom: 15px;
     }
 
-    .skill span {
-      font-size: 13px;
-      line-height: 1.4;
-      font-weight: 650;
+    .skill h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin: 0;
+      line-height: 1.5;
     }
 
     /* VIDEO SECTION */
 
-    .work {
-      padding-top: 44px;
-      padding-bottom: 58px;
+    .videos {
+      padding: 60px 0 80px;
     }
 
-    .work-grid {
+    .video-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 30px;
+      gap: 35px;
       align-items: start;
     }
 
-    .project {
+    .video-card {
       min-width: 0;
     }
 
-    .number {
-      font-size: 14px;
-      color: var(--teal);
-      font-weight: 750;
-      letter-spacing: .05em;
-      margin-bottom: 9px;
+    .video-number {
+      color: var(--turquoise);
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 12px;
     }
 
-    .project h2 {
-      font-size: clamp(21px, 2.5vw, 28px);
-      line-height: 1.18;
-      margin: 0 0 7px;
-      letter-spacing: -.025em;
+    .video-card h2 {
+      font-size: 25px;
+      margin: 0 0 8px;
     }
 
-    .project .sub {
-      font-size: 13px;
+    .video-description {
       color: var(--soft);
-      line-height: 1.5;
-      margin: 0 0 20px;
-      min-height: 40px;
+      font-size: 14px;
+      margin: 0 0 22px;
     }
 
-    .video-frame {
-      background: #09121d;
-      border: 1px solid rgba(255, 255, 255, .15);
+    .video-player {
+      background: #081522;
+      border: 1px solid var(--border);
       border-radius: 8px;
       overflow: hidden;
-      box-shadow: 0 18px 28px rgba(0, 0, 0, .22);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
     }
 
     video {
+      display: block;
       width: 100%;
       aspect-ratio: 16 / 9;
       object-fit: contain;
-      background: #09121d;
-      display: block;
+      background: #081522;
     }
 
-    .note {
-      font-size: 11px;
+    .video-note {
+      margin-top: 15px;
       color: var(--soft);
-      line-height: 1.55;
-      margin: 13px 0 0;
+      font-size: 12px;
+      line-height: 1.6;
     }
 
     /* FOOTER */
 
     footer {
-      border-top: 1px solid var(--line);
-      padding-top: 22px;
-      padding-bottom: 24px;
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      font-size: 11px;
+      border-top: 1px solid var(--border);
+      padding: 30px 0;
       color: var(--soft);
+      font-size: 12px;
+      text-align: center;
     }
 
     /* RESPONSIVE */
 
-    @media (max-width: 720px) {
-      .top {
-        align-items: flex-start;
-      }
-
-      .hero {
-        min-height: 315px;
-      }
-
-      .wave {
-        right: -290px;
-        opacity: .7;
-      }
-
+    @media (max-width: 700px) {
       .skills {
         grid-template-columns: repeat(2, 1fr);
-        row-gap: 32px;
       }
 
-      .work-grid {
-        gap: 18px;
-      }
-
-      .project .sub {
-        min-height: 0;
-      }
-
-      footer {
-        flex-direction: column;
-        gap: 7px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .work-grid {
+      .video-grid {
         grid-template-columns: 1fr;
-        gap: 36px;
-      }
-    }
-
-    @media (max-width: 440px) {
-      .top {
-        flex-direction: column;
-        gap: 17px;
       }
 
       .hero {
-        padding-top: 48px;
-        padding-bottom: 50px;
+        min-height: 320px;
       }
 
       .wave {
-        right: -360px;
+        right: -230px;
+        opacity: 0.65;
       }
 
-      .skill span {
-        font-size: 12px;
+      .subtitle {
+        font-size: 16px;
       }
     }
   </style>
@@ -311,14 +229,11 @@
 
 <body>
 
-<div class="page" id="home">
-
   <!-- HEADER -->
 
-  <header class="top inner">
-    <div>
+  <header>
+    <div class="container">
       <div class="name">SYLVI STOANOVA</div>
-
       <div class="role">
         Business Analysis | Process Optimization
       </div>
@@ -328,73 +243,68 @@
 
   <!-- HERO -->
 
-  <section class="hero inner" aria-label="Einführung">
+  <section class="hero">
 
-    <div class="hero-copy">
+    <div class="container" style="width:100%;">
 
-      <span class="eyebrow" aria-hidden="true"></span>
+      <div class="hero-content">
 
-      <h1>
-        Business<br>
-        Process Optimization
-      </h1>
+        <div class="accent-line"></div>
 
-      <p class="tagline">
-        Operative Erfahrung. Analytisches Denken.<br>
-        Digitale Lösungen.
-      </p>
+        <h1>
+          Business<br>
+          Process Optimization
+        </h1>
+
+        <p class="subtitle">
+          Operative Erfahrung. Analytisches Denken.<br>
+          Digitale Lösungen.
+        </p>
+
+      </div>
 
     </div>
 
 
-    <!-- HELLBLAUE LINIENGRAFIK -->
+    <!-- HELLBLAUE LINIEN -->
 
-    <svg
-      class="wave"
-      viewBox="0 0 550 355"
-      aria-hidden="true"
-      xmlns="http://www.w3.org/2000/svg">
+    <svg class="wave"
+         viewBox="0 0 520 280"
+         xmlns="http://www.w3.org/2000/svg"
+         aria-hidden="true">
 
       <defs>
-        <linearGradient
-          id="glow"
-          x1="0"
-          y1="1"
-          x2="1"
-          y2="0">
+        <linearGradient id="waveGradient"
+                        x1="0" y1="1"
+                        x2="1" y2="0">
 
-          <stop
-            stop-color="#8FDFFF"
-            stop-opacity=".15"/>
+          <stop offset="0%"
+                stop-color="#8FDFFF"
+                stop-opacity="0.15"/>
 
-          <stop
-            offset=".55"
-            stop-color="#8FDFFF"
-            stop-opacity=".72"/>
+          <stop offset="60%"
+                stop-color="#8FDFFF"
+                stop-opacity="0.75"/>
 
-          <stop
-            offset="1"
-            stop-color="#BCEEFF"
-            stop-opacity="1"/>
+          <stop offset="100%"
+                stop-color="#BCEEFF"
+                stop-opacity="1"/>
 
         </linearGradient>
       </defs>
 
-      <g
-        fill="none"
-        stroke="url(#glow)"
-        stroke-width="2">
+      <g fill="none"
+         stroke="url(#waveGradient)"
+         stroke-width="2">
 
-        <path d="M15 347 C210 325 332 258 425 128 S530 8 590 -20"/>
-        <path d="M15 347 C215 320 340 248 434 120 S535 5 590 -25"/>
-        <path d="M15 347 C220 316 348 238 443 112 S540 2 590 -30"/>
-        <path d="M15 347 C225 312 356 228 452 104 S545 -1 590 -35"/>
-        <path d="M15 347 C230 308 364 218 461 96 S550 -4 590 -40"/>
-        <path d="M15 347 C235 304 372 208 470 88 S555 -7 590 -45"/>
-        <path d="M15 347 C240 300 380 198 479 80 S560 -10 590 -50"/>
-        <path d="M15 347 C245 296 388 188 488 72 S565 -13 590 -55"/>
-        <path d="M15 347 C250 292 396 178 497 64 S570 -16 590 -60"/>
-        <path d="M15 347 C255 288 404 168 506 56 S575 -19 590 -65"/>
+        <path d="M0 275 C180 260 310 200 400 100 S490 10 550 -20"/>
+        <path d="M0 275 C185 255 320 190 410 90 S495 5 550 -25"/>
+        <path d="M0 275 C190 250 330 180 420 80 S500 0 550 -30"/>
+        <path d="M0 275 C195 245 340 170 430 70 S505 -5 550 -35"/>
+        <path d="M0 275 C200 240 350 160 440 60 S510 -10 550 -40"/>
+        <path d="M0 275 C205 235 360 150 450 50 S515 -15 550 -45"/>
+        <path d="M0 275 C210 230 370 140 460 40 S520 -20 550 -50"/>
+        <path d="M0 275 C215 225 380 130 470 30 S525 -25 550 -55"/>
 
       </g>
 
@@ -403,105 +313,102 @@
   </section>
 
 
-  <!-- COMPETENCIES -->
+  <!-- SKILLS -->
 
-  <section class="skills inner" aria-label="Kompetenzen">
+  <section class="container">
 
-    <div class="skill">
+    <div class="skills">
 
-      <svg viewBox="0 0 40 40" aria-hidden="true">
-        <circle cx="20" cy="7" r="4"/>
-        <circle cx="7" cy="31" r="4"/>
-        <circle cx="33" cy="31" r="4"/>
-        <path d="M18 11 9 27M22 11l9 16M11 31h18"/>
-      </svg>
+      <div class="skill">
 
-      <span>
-        Prozess-<br>verständnis
-      </span>
+        <svg viewBox="0 0 40 40" aria-hidden="true">
+          <circle cx="20" cy="7" r="4"/>
+          <circle cx="7" cy="31" r="4"/>
+          <circle cx="33" cy="31" r="4"/>
+          <path d="M18 11 9 27M22 11l9 16M11 31h18"/>
+        </svg>
 
-    </div>
+        <h3>
+          Prozess-<br>verständnis
+        </h3>
 
-
-    <div class="skill">
-
-      <svg viewBox="0 0 40 40" aria-hidden="true">
-        <path d="M11 4h14l6 6v26H11zM25 4v7h6M16 19h11M16 25h11M16 31h8"/>
-      </svg>
-
-      <span>
-        Anforderungsanalyse
-      </span>
-
-    </div>
+      </div>
 
 
-    <div class="skill">
+      <div class="skill">
 
-      <svg viewBox="0 0 40 40" aria-hidden="true">
-        <path d="M6 35V23h7v12M17 35V17h7v18M28 35V10h7v25M5 16l10-7 8 4L35 4M29 4h6v6"/>
-      </svg>
+        <svg viewBox="0 0 40 40" aria-hidden="true">
+          <path d="M11 4h14l6 6v26H11zM25 4v7h6M16 19h11M16 25h11M16 31h8"/>
+        </svg>
 
-      <span>
-        Wirtschaftliches<br>Handeln
-      </span>
+        <h3>
+          Anforderungsanalyse
+        </h3>
 
-    </div>
+      </div>
 
 
-    <div class="skill">
+      <div class="skill">
 
-      <svg viewBox="0 0 40 40" aria-hidden="true">
-        <path d="M14 28c0-4-7-7-7-15a13 13 0 0 1 26 0c0 8-7 11-7 15M14 28h12M15 33h10M18 37h4M20 1v-1M4 6 1 3M36 6l3-3"/>
-      </svg>
+        <svg viewBox="0 0 40 40" aria-hidden="true">
+          <path d="M6 35V23h7v12M17 35V17h7v18M28 35V10h7v25M5 16l10-7 8 4L35 4M29 4h6v6"/>
+        </svg>
 
-      <span>
-        Digitalisierung
-      </span>
+        <h3>
+          Wirtschaftliches<br>Handeln
+        </h3>
+
+      </div>
+
+
+      <div class="skill">
+
+        <svg viewBox="0 0 40 40" aria-hidden="true">
+          <path d="M14 28c0-4-7-7-7-15a13 13 0 0 1 26 0c0 8-7 11-7 15M14 28h12M15 33h10M18 37h4"/>
+        </svg>
+
+        <h3>
+          Digitalisierung
+        </h3>
+
+      </div>
 
     </div>
 
   </section>
 
 
-  <!-- TWO VIDEOS SIDE BY SIDE -->
+  <!-- TWO VIDEOS -->
 
-  <main class="work inner" id="videos">
+  <main class="videos container">
 
-    <div class="work-grid">
-
+    <div class="video-grid">
 
       <!-- VIDEO 1 -->
 
-      <article class="project">
+      <article class="video-card">
 
-        <div class="number">01</div>
+        <div class="video-number">01</div>
 
         <h2>Business Case Study</h2>
 
-        <p class="sub">
+        <p class="video-description">
           Prozessanalyse und Optimierung
         </p>
 
-        <div class="video-frame">
+        <div class="video-player">
 
-          <video
-            controls
-            playsinline
-            preload="metadata"
-            aria-label="Business Case Study">
-
+          <video controls playsinline preload="metadata">
             <source
               src="Business_Process_Optimization.mp4"
               type="video/mp4">
 
-            Dein Browser unterstützt keine MP4-Videos.
-
+            Ihr Browser unterstützt dieses Videoformat nicht.
           </video>
 
         </div>
 
-        <p class="note">
+        <p class="video-note">
           Konzeptionelle Fallstudie auf Basis eines
           fiktiven Geschäftsszenarios ·
           Keine Darstellung eines realen Kundenprojekts
@@ -512,35 +419,29 @@
 
       <!-- VIDEO 2 -->
 
-      <article class="project">
+      <article class="video-card">
 
-        <div class="number">02</div>
+        <div class="video-number">02</div>
 
         <h2>n8n Proof of Concept</h2>
 
-        <p class="sub">
+        <p class="video-description">
           Prozessentscheidung automatisieren
         </p>
 
-        <div class="video-frame">
+        <div class="video-player">
 
-          <video
-            controls
-            playsinline
-            preload="metadata"
-            aria-label="n8n Proof of Concept">
-
+          <video controls playsinline preload="metadata">
             <source
               src="n8n_Proof_of_Concept(1).mp4"
               type="video/mp4">
 
-            Dein Browser unterstützt keine MP4-Videos.
-
+            Ihr Browser unterstützt dieses Videoformat nicht.
           </video>
 
         </div>
 
-        <p class="note">
+        <p class="video-note">
           Fiktives Projektszenario mit Testdaten ·
           Keine produktive ERP-Anbindung
         </p>
@@ -554,19 +455,12 @@
 
   <!-- FOOTER -->
 
-  <footer class="inner">
-
-    <span>
-      © 2026 Sylvi Stoanova
-    </span>
-
-    <span>
+  <footer>
+    <div class="container">
+      © 2026 Sylvi Stoanova |
       Business Analysis · Process Optimization · Digitalization
-    </span>
-
+    </div>
   </footer>
-
-</div>
 
 </body>
 </html>
